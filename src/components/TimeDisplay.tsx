@@ -10,7 +10,7 @@ import { ActionTypes } from '../context/actionTypes';
 import moment from 'moment';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TimeDisplay: React.FC<TimeDisplayProps & { dragHandleProps: any }> = ({ timeZone, dragHandleProps }) => {
+const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone }) => {
     const { state, dispatch } = useGlobalState();
     const [selectedTime, setSelectedTime] = useState('');
 
@@ -41,7 +41,7 @@ const TimeDisplay: React.FC<TimeDisplayProps & { dragHandleProps: any }> = ({ ti
     return (
         <div className="relative p-8 bg-white rounded-md drop-shadow-md hover:ring-2 hover:ring-secondaryColor">
             <div className="relative flex items-center justify-between space-x-2">
-                <div className='cursor-pointer' {...dragHandleProps}>
+                <div className='cursor-pointer'>
                     <MdDragIndicator className="w-6 h-6 text-gray-500 hover:text-black" aria-hidden="true" />
                 </div>
                 <div className='grow'>
