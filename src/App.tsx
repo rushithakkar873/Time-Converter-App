@@ -2,18 +2,18 @@ import Header from './components/Header'
 import TimeConverterContainer from './components/TimeConverterContainer'
 import Footer from './components/Footer'
 import './App.css'
-import GlobalStateProvider from './context/GlobalStateProvider'
+import { useGlobalState } from './hooks/useGlobalState'
 
-function App() {
+const App = () => {
+  const { state } = useGlobalState();
+  const themeClass = state.theme === 'light' ? 'bg-[#f5f5f5]' : 'bg-gray-300';
 
   return (
-    <GlobalStateProvider>
-      <div className='h-screen max-h-screen flex flex-col'>
-        <Header />
-        <TimeConverterContainer />
-        <Footer />
-      </div>
-    </GlobalStateProvider>
+    <div className={`h-screen max-h-screen overflow-auto flex flex-col ${themeClass}`}>
+      <Header />
+      <TimeConverterContainer />
+      <Footer />
+    </div>
   )
 }
 

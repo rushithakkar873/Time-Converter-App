@@ -31,16 +31,6 @@ const CustomInput = (props: any) => {
 const ControlPanel = () => {
   const {state, dispatch} = useGlobalState();
 
-  const handleReverseOrder = () => {
-    // Implement the reverse order functionality
-    dispatch({type: ActionTypes.REVERSE_TIME_ZONES});
-  }
-
-  const handleThemeToggle = () => {
-    // Implement the theme toggle functionality
-    dispatch({type: ActionTypes.CHANGE_THEME, payload: state.theme === 'light' ? 'dark' : 'light'});
-  }
-
   return (
     <div className="flex justify-between items-center">
       <AddTimeZoneDropdown />
@@ -53,10 +43,10 @@ const ControlPanel = () => {
         />
       </div>
       <div className="flex space-x-2">
-        <Button handleClick={handleReverseOrder}>
+        <Button handleClick={() => dispatch({type: ActionTypes.REVERSE_TIME_ZONES})}>
           <MdOutlineSwapVert className="h-6 w-6" />
         </Button>
-        <Button handleClick={handleThemeToggle}>
+        <Button handleClick={() => dispatch({type: ActionTypes.CHANGE_THEME})}>
           <MdDarkMode className="h-6 w-6" />
         </Button>
       </div>

@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import React from 'react';
+import { TimeSliderProps } from '../types';
 
-const TimeSlider = () => {
-    const [value, setValue] = useState(0);
-
+const TimeSlider : React.FC<TimeSliderProps> = ({rangeValue, handleRangeValueChange}) => {
     // Convert the slider value to a 12-hour format
     const formatTime = (value: number) => {
         const hours = value % 12 === 0 ? 12 : value % 12;
@@ -16,8 +15,8 @@ const TimeSlider = () => {
                 type="range"
                 min="0"
                 max="24"
-                value={value}
-                onChange={(e) => {setValue(Number(e.target.value)); console.log(e.target.value)}}
+                value={rangeValue}
+                onChange={(e) => handleRangeValueChange(Number(e.target.value))}
                 className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 z-10"
                 step="0.25"
             />

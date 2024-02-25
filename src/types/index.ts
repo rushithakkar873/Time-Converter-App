@@ -22,3 +22,8 @@ export type TimeZoneType = {
 export type TimeDisplayProps = {
     timeZone: TimeZoneType;
 };
+
+export type TimeSliderProps = {
+    rangeValue: number;
+    handleRangeValueChange: (value: number) => void;
+};

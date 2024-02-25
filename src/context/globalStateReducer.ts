@@ -28,7 +28,7 @@ export const globalStateReducer = (state: GlobalState, action: GlobalStateAction
         case ActionTypes.CHANGE_THEME:
             return {
                 ...state,
-                theme: action.payload as 'light' | 'dark',
+                theme: (state.theme === "light" ? "dark" : "light") as "light" | "dark",
             };
         case ActionTypes.REVERSE_TIME_ZONES:
             return {
